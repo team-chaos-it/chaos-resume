@@ -27,6 +27,7 @@ Temporary Items
 ### Intellij ###
 # Folder-based project format
 .idea
+.run
 
 # File-based project format
 *.iws
