@@ -1,7 +1,6 @@
-import { CertificationsItem } from './CertificationsItem'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
 import * as icons from '@fortawesome/free-solid-svg-icons'
-import faEnvelope from '@fortawesome/free-solid-svg-icons'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { CertificationsItem } from './CertificationsItem'
 
 export default {
   component: CertificationsItem,

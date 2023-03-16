@@ -22,7 +22,7 @@ export const Certifications = ({ items = [] }: CertificationsProps) => {
         css={{ color: tokens.text.font.color }}
       >
         {items.map((itemProps) => (
-          <CertificationsItem {...itemProps} />
+          <CertificationsItem key={itemProps.title} {...itemProps} />
         ))}
       </Stack>
     </section>

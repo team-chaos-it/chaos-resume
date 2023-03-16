@@ -1,7 +1,6 @@
-import { ContactItem } from './ContactItem'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
 import * as icons from '@fortawesome/free-solid-svg-icons'
-import faEnvelope from '@fortawesome/free-solid-svg-icons'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ContactItem } from './ContactItem'
 
 export default {
   component: ContactItem,

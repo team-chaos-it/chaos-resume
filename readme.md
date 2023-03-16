@@ -1,7 +1,9 @@
 # chaos-resume
+
 This repository contains the layout an design for the Team Chaos resume website. All changes to the sites layout or function should be made here.
 
 ## Using the template
+
 To use the template for your GitHub Pages website
 
 1. Fork this repository into your account. The new repository should be named username.github.io, where username is your username (or organization name) on GitHub.
@@ -12,6 +14,7 @@ To use the template for your GitHub Pages website
 More information about GitHub Pages can be found here: [https://pages.github.com/](https://pages.github.com/)
 
 ## Project format
+
 The projects for the resume are stored in Markdown files under [src/data/projects](src/data/projects). These file musst have the following format.
 
 ```yml

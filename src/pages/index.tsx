@@ -10,8 +10,8 @@ import { graphql } from 'gatsby'
 import { Education } from '../components/education/Education'
 import { Certifications } from '../components/certifications/Certifications'
 import { profile } from '../data/profile'
-import { useQueryParamString } from 'react-use-query-param-string';
-import {ProjectProps} from "../components/projects/Project";
+import { useQueryParamString } from 'react-use-query-param-string'
+import { ProjectProps } from '../components/projects/Project'
 
 type DataProps = {
   files: {
@@ -32,27 +32,33 @@ type DataProps = {
   }
 }
 
-const IndexPage = ({ data, ...props }: PageProps<DataProps>) => {
-  const [toolsFilter] = useQueryParamString('tools', '');
+const IndexPage = ({ data }: PageProps<DataProps>) => {
+  const [toolsFilter] = useQueryParamString('tools', '')
 
-  const normalizedForFilter = (input: string) => input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+  const normalizedForFilter = (input: string) =>
+    input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
   const matchesFilter = (project: ProjectProps) => {
-    if(!toolsFilter || toolsFilter.length === 0) {
+    if (!toolsFilter || toolsFilter.length === 0) {
       return true
     }
 
-    return project.tools
-        ?.some(toolInProject => toolsFilter
-          .split(',')
-          .some((toolInFilter) => normalizedForFilter(toolInFilter) === normalizedForFilter(toolInProject))
-        )
+    return project.tools?.some((toolInProject) =>
+      toolsFilter
+        .split(',')
+        .some(
+          (toolInFilter) =>
+            normalizedForFilter(toolInFilter) ===
+            normalizedForFilter(toolInProject),
+        ),
+    )
   }
 
-  const projects = data.files.projects.map((p) => ({
-    ...p.project.frontmatter,
-    html: p.project.html,
-  }))
-      .filter(matchesFilter)
+  const projects = data.files.projects
+    .map((p) => ({
+      ...p.project.frontmatter,
+      html: p.project.html,
+    }))
+    .filter(matchesFilter)
 
   return (
     <React.Fragment>

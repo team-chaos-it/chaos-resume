@@ -27,6 +27,7 @@ export const Stack = forwardRef(
           },
         ]}
         {...props}
+        ref={ref}
       />
     )
   },

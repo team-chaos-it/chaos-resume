@@ -1,7 +1,6 @@
-import { EducationItem } from './EducationItem'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
 import * as icons from '@fortawesome/free-solid-svg-icons'
-import faEnvelope from '@fortawesome/free-solid-svg-icons'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { EducationItem } from './EducationItem'
 
 export default {
   component: EducationItem,

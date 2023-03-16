@@ -1,7 +1,7 @@
-import { Stack } from '../shared/stack/Stack'
 import { PropsWithChildren } from 'react'
-import { Heading } from '../shared/heading/Heading'
 import { base } from '../../tokens'
+import { Heading } from '../shared/heading/Heading'
+import { Stack } from '../shared/stack/Stack'
 
 export type CompetenciesItemProps = PropsWithChildren & {
   title: string
@@ -14,7 +14,7 @@ export const CompetenciesItem = ({
   ...props
 }: CompetenciesItemProps) => {
   return (
-    <Stack direction="column" gap=".25rem">
+    <Stack direction="column" gap=".25rem" {...props}>
       <Heading size="xs">{title}</Heading>
       <progress
         css={{

@@ -27,8 +27,8 @@ const config: GatsbyConfig = {
           scale: 0.75,
           landscape: false,
           margin: {
-            top: 56, //3.5rem
-            bottom: 40, //2.5rem
+            top: 56, // 3.5rem
+            bottom: 40, // 2.5rem
           },
         },
       },

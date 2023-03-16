@@ -13,8 +13,18 @@ const Template: ComponentStory<typeof Education> = (args) => (
 export const Default = Template.bind({})
 Default.storyName = 'Education'
 Default.args = {
-  phone: '0123 1234567',
-  email: 'info@example.org',
-  xing: 'xing.com/profile/John_Doe',
-  city: 'Barcelona',
+  items: [
+    {
+      title: 'Master of Disaster',
+      subtitle: 'Chaos University',
+      from: '2012',
+      to: '2015',
+    },
+    {
+      title: 'Bachelor of Disaster',
+      subtitle: 'Chaos University',
+      from: '2009',
+      to: '2012',
+    },
+  ],
 }

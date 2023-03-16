@@ -1,5 +1,5 @@
-import { Contact } from './Contact'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Contact } from './Contact'
 
 export default {
   component: Contact,

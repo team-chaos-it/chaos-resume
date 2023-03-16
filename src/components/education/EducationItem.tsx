@@ -1,7 +1,6 @@
-import { Stack } from '../shared/stack/Stack'
-import { Text } from '../shared/text/Text'
 import { PropsWithChildren } from 'react'
 import { Heading } from '../shared/heading/Heading'
+import { Stack } from '../shared/stack/Stack'
 
 export type EducationItemProps = PropsWithChildren & {
   title: string
@@ -24,6 +23,7 @@ export const EducationItem = ({
       css={{
         pageBreakInside: 'avoid',
       }}
+      {...props}
     >
       <Heading size="sm">{title}</Heading>
       {subtitle && <Heading size="xs">{subtitle}</Heading>}

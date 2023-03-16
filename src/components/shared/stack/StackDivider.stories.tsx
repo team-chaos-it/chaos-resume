@@ -1,9 +1,8 @@
 import { ComponentMeta, Story } from '@storybook/react'
-import { ComponentProps } from 'react'
+import React, { ComponentProps } from 'react'
 import { Stack } from './Stack'
 import { StoryPlaceholder } from '../../../utils/StoryUtils'
 import { StackDivider } from './StackDivider'
-import React from 'react'
 import { CSSObject } from '@emotion/react'
 
 export default {
@@ -42,7 +41,7 @@ const Template: Story<ComponentProps<typeof StackDivider> & StoryProps> = ({
   return (
     <Stack direction={direction} gap={gap}>
       {items.map((_, index) => (
-        <React.Fragment>
+        <React.Fragment key={index}>
           <StoryPlaceholder key={index} width="50px" height="50px" />
           {index !== items.length - 1 && <StackDivider {...args} />}
         </React.Fragment>

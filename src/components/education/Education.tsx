@@ -19,7 +19,7 @@ export const Education = ({ items = [] }: EducationProps) => {
         css={{ color: tokens.text.font.color }}
       >
         {items.map((itemProps) => (
-          <EducationItem {...itemProps} />
+          <EducationItem key={itemProps.title} {...itemProps} />
         ))}
       </Stack>
     </section>

@@ -35,6 +35,7 @@ export const Project = ({
         paddingBlock: '2rem',
         gap: '1rem',
       }}
+      {...props}
     >
       <div
         css={{

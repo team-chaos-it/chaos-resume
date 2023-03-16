@@ -9,7 +9,7 @@ export type ProjectsProps = {
 
 export const Projects = ({ projects, ...props }: ProjectsProps) => {
   return (
-    <section>
+    <section {...props}>
       <Heading size="md" css={{ marginBottom: '2rem', marginLeft: '4rem' }}>
         Projekte
       </Heading>
