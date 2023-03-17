@@ -10,10 +10,18 @@ export type CompetenciesProps = {
 export const Competencies = ({ groups = {} }: CompetenciesProps) => {
   return (
     <section>
-      <Heading size="md" css={{ marginBottom: '2rem' }}>
+      <Heading
+        size="md"
+        textAlign={{ sm: 'center', md: 'start' }}
+        css={{ marginBottom: '2rem' }}
+      >
         Kompetenzen
       </Heading>
-      <Stack direction="column" gap="3rem">
+      <Stack
+        direction="column"
+        gap="3rem"
+        align={{ sm: 'center', md: 'start' }}
+      >
         {Object.keys(groups).map((group) => (
           <Stack
             key={group}
@@ -23,7 +31,9 @@ export const Competencies = ({ groups = {} }: CompetenciesProps) => {
               pageBreakInside: 'avoid',
             }}
           >
-            <Heading size="sm">{group}</Heading>
+            <Heading size="sm" textAlign={{ sm: 'center', md: 'start' }}>
+              {group}
+            </Heading>
             <Stack
               direction="column"
               gap="1rem"

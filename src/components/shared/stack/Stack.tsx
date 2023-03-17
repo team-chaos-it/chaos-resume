@@ -1,13 +1,16 @@
 import { forwardRef } from 'react'
 import { Polymorphic } from '../../../utils/PolymorphicUtils'
-import { CSSObject } from '@emotion/react'
+import {
+  ResponsiveCSSObject,
+  responsiveValue,
+} from '../../../utils/ResponsiveUtils'
 
 export type StackProps = {
-  align?: CSSObject['alignItems']
-  justify?: CSSObject['justifyContent']
-  gap?: CSSObject['gap']
-  direction?: CSSObject['flexDirection']
-  wrap?: CSSObject['flexWrap']
+  align?: ResponsiveCSSObject<'alignItems'>
+  justify?: ResponsiveCSSObject<'justifyContent'>
+  gap?: ResponsiveCSSObject<'gap'>
+  direction?: ResponsiveCSSObject<'flexDirection'>
+  wrap?: ResponsiveCSSObject<'flexWrap'>
 }
 
 export const Stack = forwardRef(
@@ -19,12 +22,12 @@ export const Stack = forwardRef(
         css={[
           {
             display: 'flex',
-            gap,
-            alignItems: align,
-            justifyContent: justify,
-            flexDirection: direction,
-            flexWrap: wrap,
           },
+          responsiveValue('gap', gap),
+          responsiveValue('alignItems', align),
+          responsiveValue('justifyContent', justify),
+          responsiveValue('flexWrap', wrap),
+          responsiveValue('flexDirection', direction),
         ]}
         {...props}
         ref={ref}

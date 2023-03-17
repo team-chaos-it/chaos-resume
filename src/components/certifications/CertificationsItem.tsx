@@ -25,9 +25,15 @@ export const CertificationsItem = ({
       }}
       {...props}
     >
-      <Heading size="sm">{title}</Heading>
-      {subtitle && <Heading size="xs">{subtitle}</Heading>}
-      <Heading size="xs">
+      <Heading size="sm" textAlign={{ sm: 'center', md: 'start' }}>
+        {title}
+      </Heading>
+      {subtitle && (
+        <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
+          {subtitle}
+        </Heading>
+      )}
+      <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
         {authority} | {date}
       </Heading>
     </Stack>

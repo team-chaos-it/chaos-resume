@@ -25,9 +25,17 @@ export const EducationItem = ({
       }}
       {...props}
     >
-      <Heading size="sm">{title}</Heading>
-      {subtitle && <Heading size="xs">{subtitle}</Heading>}
-      <Heading size="xs">{to ? `${from} - ${to}` : `seit ${from}`}</Heading>
+      <Heading size="sm" textAlign={{ sm: 'center', md: 'start' }}>
+        {title}
+      </Heading>
+      {subtitle && (
+        <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
+          {subtitle}
+        </Heading>
+      )}
+      <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
+        {to ? `${from} - ${to}` : `seit ${from}`}
+      </Heading>
     </Stack>
   )
 }

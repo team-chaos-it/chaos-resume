@@ -15,7 +15,9 @@ export const CompetenciesItem = ({
 }: CompetenciesItemProps) => {
   return (
     <Stack direction="column" gap=".25rem" {...props}>
-      <Heading size="xs">{title}</Heading>
+      <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
+        {title}
+      </Heading>
       <progress
         css={{
           appearance: 'none',
