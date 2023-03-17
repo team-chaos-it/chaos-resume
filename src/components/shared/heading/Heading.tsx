@@ -1,14 +1,18 @@
 import { CSSProperties, forwardRef } from 'react'
 import { Polymorphic } from '../../../utils/PolymorphicUtils'
 import { tokens } from '../../../tokens'
+import {
+  ResponsiveCSSObject,
+  responsiveValue,
+} from '../../../utils/ResponsiveUtils'
 
 export type HeadingProps = {
   size: 'xs' | 'sm' | 'md' | 'lg'
-  center?: boolean
+  textAlign?: ResponsiveCSSObject<'textAlign'>
 }
 
 export const Heading = forwardRef(
-  ({ as = 'p', size, center = false, ...props }, ref) => {
+  ({ as = 'p', size, textAlign, ...props }, ref) => {
     const Component = as || 'p'
 
     return (
@@ -16,8 +20,8 @@ export const Heading = forwardRef(
         ref={ref}
         css={{
           margin: 0,
-          textAlign: center ? 'center' : undefined,
-          width: center ? '100%' : undefined,
+          ...responsiveValue('textAlign', textAlign),
+          width: '100%',
           ...(tokens.heading[size].font as CSSProperties),
         }}
         {...props}

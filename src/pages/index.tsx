@@ -1,17 +1,19 @@
-import * as React from 'react'
 import type { PageProps } from 'gatsby'
-import { Header } from '../components/header/Header'
+import { graphql } from 'gatsby'
+import * as React from 'react'
+import { useQueryParamString } from 'react-use-query-param-string'
+import { Certifications } from '../components/certifications/Certifications'
+import { Competencies } from '../components/competencies/Competencies'
 import { Contact } from '../components/contact/Contact'
+import { Education } from '../components/education/Education'
+import { PrintHeader } from '../components/header/PrintHeader'
+import { ScreenHeader } from '../components/header/ScreenHeader'
+import { ProjectProps } from '../components/projects/Project'
+import { Projects } from '../components/projects/Projects'
 import { Stack } from '../components/shared/stack/Stack'
 import { StackDivider } from '../components/shared/stack/StackDivider'
-import { Competencies } from '../components/competencies/Competencies'
-import { Projects } from '../components/projects/Projects'
-import { graphql } from 'gatsby'
-import { Education } from '../components/education/Education'
-import { Certifications } from '../components/certifications/Certifications'
 import { profile } from '../data/profile'
-import { useQueryParamString } from 'react-use-query-param-string'
-import { ProjectProps } from '../components/projects/Project'
+import { responsiveValue } from '../utils/ResponsiveUtils'
 
 type DataProps = {
   files: {
@@ -69,25 +71,32 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           },
         }}
       >
-        <Header {...profile.personal} />
-
+        <PrintHeader
+          name={profile.personal.name}
+          jobTitle={profile.personal.jobTitle}
+        />
+        <ScreenHeader {...profile.personal} />
         <Stack
-          direction="row"
-          gap="5rem"
-          css={{
-            paddingInline: '4rem',
-          }}
+          direction={{ sm: 'column', md: 'row' }}
+          gap={{ sm: 0, md: '5rem' }}
+          css={responsiveValue('paddingInline', { sm: '2rem', md: '4rem' })}
         >
           <Stack direction="column" gap="2rem">
             <Contact {...profile.contact} />
-            <StackDivider inset />
+            <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
             <Competencies groups={profile.competencies}></Competencies>
-            <StackDivider inset />
+            <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
             <Education items={profile.education} />
-            <StackDivider inset />
+            <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
             <Certifications items={profile.certifications} />
           </Stack>
-
+          <StackDivider
+            maxWidth={'100%'}
+            css={[
+              { marginTop: '2rem', marginBottom: '2rem' },
+              responsiveValue('display', { sm: 'block', md: 'none' }),
+            ]}
+          />
           <Projects projects={[...projects]} />
         </Stack>
       </table>

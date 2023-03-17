@@ -13,7 +13,11 @@ export type CertificationsProps = {
 export const Certifications = ({ items = [] }: CertificationsProps) => {
   return (
     <section>
-      <Heading size="md" css={{ marginBottom: '2rem' }}>
+      <Heading
+        size="md"
+        css={{ marginBottom: '2rem' }}
+        textAlign={{ sm: 'center', md: 'start' }}
+      >
         Zertifikate
       </Heading>
       <Stack

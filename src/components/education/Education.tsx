@@ -10,7 +10,11 @@ export type EducationProps = {
 export const Education = ({ items = [] }: EducationProps) => {
   return (
     <section>
-      <Heading size="md" css={{ marginBottom: '2rem' }}>
+      <Heading
+        size="md"
+        css={{ marginBottom: '2rem' }}
+        textAlign={{ sm: 'center', md: 'start' }}
+      >
         Ausbildung
       </Heading>
       <Stack

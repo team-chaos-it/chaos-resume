@@ -2,6 +2,7 @@ import { Stack } from '../shared/stack/Stack'
 import { Heading } from '../shared/heading/Heading'
 import { Text } from '../shared/text/Text'
 import { tokens } from '../../tokens'
+import { responsiveValue } from '../../utils/ResponsiveUtils'
 
 export type ProjectProps = {
   title: string
@@ -31,22 +32,25 @@ export const Project = ({
       css={{
         pageBreakInside: 'avoid',
         position: 'relative',
-        marginLeft: '4rem',
         paddingBlock: '2rem',
         gap: '1rem',
+        ...responsiveValue('marginLeft', { sm: '2rem', md: '4rem' }),
       }}
       {...props}
     >
       <div
         css={{
           position: 'absolute',
-          left: 'calc(-4rem - 9px)',
           border: '1px solid',
           borderColor: tokens.stack.divider.color,
           backgroundColor: '#ffffff',
           borderRadius: '100%',
           width: '15px',
           height: '15px',
+          ...responsiveValue('left', {
+            sm: 'calc(-2rem - 9px)',
+            md: 'calc(-4rem - 9px)',
+          }),
         }}
       />
 
