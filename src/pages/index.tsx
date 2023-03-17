@@ -14,6 +14,7 @@ import { Stack } from '../components/shared/stack/Stack'
 import { StackDivider } from '../components/shared/stack/StackDivider'
 import { profile } from '../data/profile'
 import { responsiveValue } from '../utils/ResponsiveUtils'
+import { UnderConstruction } from '../components/under-construction/UnderConstruction'
 
 type DataProps = {
   files: {
@@ -36,6 +37,10 @@ type DataProps = {
 
 const IndexPage = ({ data }: PageProps<DataProps>) => {
   const [toolsFilter] = useQueryParamString('tools', '')
+
+  if (profile.useUnderConstructionPage) {
+    return <UnderConstruction />
+  }
 
   const normalizedForFilter = (input: string) =>
     input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
