@@ -1,6 +1,7 @@
 import profileImage from './profile.jpg'
 
 export const profile = {
+  useUnderConstructionPage: true,
   personal: {
     name: 'John Doe',
     jobTitle: 'Senior Smartass',
