@@ -88,7 +88,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           css={responsiveValue('paddingInline', { sm: '2rem', md: '4rem' })}
         >
           <Stack direction="column" gap="2rem">
-            <Contact {...profile.contact} city={profile.contact.address} />
+            <Contact contacts={profile.contact} />
             <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
             <Competencies groups={profile.competencies}></Competencies>
             <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />

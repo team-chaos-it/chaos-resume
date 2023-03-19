@@ -1,22 +1,19 @@
-import { faXing } from '@fortawesome/free-brands-svg-icons'
-import {
-  faEnvelope,
-  faLocationDot,
-  faPhone,
-} from '@fortawesome/free-solid-svg-icons'
+import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
 import { tokens } from '../../tokens'
 import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
 import { ContactItem } from './ContactItem'
 
-export type ContactProps = {
-  phone: string
-  email: string
-  xing: string
-  city: string
+type ContactInformation = {
+  icon: IconDefinition
+  value: string
 }
 
-export const Contact = ({ phone, email, xing, city }: ContactProps) => {
+export type ContactProps = {
+  contacts: Array<ContactInformation>
+}
+
+export const Contact = ({ contacts }: ContactProps) => {
   return (
     <section>
       <Heading
@@ -32,10 +29,11 @@ export const Contact = ({ phone, email, xing, city }: ContactProps) => {
         align={{ sm: 'center', md: 'start' }}
         css={{ color: tokens.text.font.color }}
       >
-        <ContactItem icon={faPhone}>{phone}</ContactItem>
-        <ContactItem icon={faEnvelope}>{email}</ContactItem>
-        <ContactItem icon={faXing}>{xing}</ContactItem>
-        <ContactItem icon={faLocationDot}>{city}</ContactItem>
+        {contacts.map((c) => (
+          <ContactItem key={c.value} icon={c.icon}>
+            {c.value}
+          </ContactItem>
+        ))}
       </Stack>
     </section>
   )

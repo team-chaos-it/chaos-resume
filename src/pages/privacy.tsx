@@ -14,7 +14,7 @@ const Privacy = () => {
     <Stack
       direction="column"
       gap="16px"
-      css={{ marginTop: '3rem', marginInline: '4rem', marginBottom: '2.5rem' }}
+      css={{ paddingTop: '3rem', marginInline: '4rem', marginBottom: '2.5rem' }}
     >
       <Link to="/">
         <Stack gap="8px" align="center">
