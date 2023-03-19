@@ -1,4 +1,10 @@
 import profileImage from './profile.jpg'
+import {
+  faEnvelope,
+  faLocationDot,
+  faPhone,
+} from '@fortawesome/free-solid-svg-icons'
+import { faXing } from '@fortawesome/free-brands-svg-icons'
 
 export const contact = {
   phone: '0123 1234567',
@@ -21,12 +27,12 @@ export const profile = {
     },
     vatId: 'DE999999999',
   },
-  contact: {
-    phone: contact.phone,
-    email: contact.email,
-    xing: contact.xing,
-    address: contact.address.city,
-  },
+  contact: [
+    { icon: faPhone, value: contact.phone },
+    { icon: faEnvelope, value: contact.email },
+    { icon: faXing, value: contact.xing },
+    { icon: faLocationDot, value: contact.address.city },
+  ],
   competencies: {
     Area1: [
       { title: 'Competency 1', level: 100 },
