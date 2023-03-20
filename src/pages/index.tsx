@@ -1,5 +1,4 @@
-import type { PageProps } from 'gatsby'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import * as React from 'react'
 import { useQueryParamString } from 'react-use-query-param-string'
 import { Certifications } from '../components/certifications/Certifications'
@@ -10,11 +9,13 @@ import { PrintHeader } from '../components/header/PrintHeader'
 import { ScreenHeader } from '../components/header/ScreenHeader'
 import { ProjectProps } from '../components/projects/Project'
 import { Projects } from '../components/projects/Projects'
+import { Link } from '../components/shared/link/link'
+import { Footer } from '../components/shared/footer/footer'
 import { Stack } from '../components/shared/stack/Stack'
 import { StackDivider } from '../components/shared/stack/StackDivider'
+import { UnderConstruction } from '../components/under-construction/UnderConstruction'
 import { profile } from '../data/profile'
 import { responsiveValue } from '../utils/ResponsiveUtils'
-import { UnderConstruction } from '../components/under-construction/UnderConstruction'
 
 type DataProps = {
   files: {
@@ -87,7 +88,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           css={responsiveValue('paddingInline', { sm: '2rem', md: '4rem' })}
         >
           <Stack direction="column" gap="2rem">
-            <Contact {...profile.contact} />
+            <Contact {...profile.contact} city={profile.contact.address} />
             <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
             <Competencies groups={profile.competencies}></Competencies>
             <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
@@ -105,6 +106,10 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           <Projects projects={[...projects]} />
         </Stack>
       </table>
+      <Footer>
+        <Link to="/imprint">Impressum</Link>
+        <Link to="/privacy">Datenschutz</Link>
+      </Footer>
     </React.Fragment>
   )
 }
