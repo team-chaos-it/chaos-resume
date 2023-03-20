@@ -20,7 +20,9 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-pdf',
       options: {
-        allPages: true,
+        allPages: false,
+        useRegexPaths: false,
+        paths: ['/'],
         outputPath: '/public/pdf',
         pdfOptions: {
           printBackground: true,

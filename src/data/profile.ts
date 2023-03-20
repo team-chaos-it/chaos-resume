@@ -1,17 +1,31 @@
 import profileImage from './profile.jpg'
 
+export const contact = {
+  phone: '0123 1234567',
+  email: 'info@example.org',
+  xing: 'xing.com/profile/John_Doe',
+  address: { street: 'Hauptstraße', zip: '12345', city: 'Birbenhausen' },
+}
+
 export const profile = {
-  useUnderConstructionPage: true,
+  useUnderConstructionPage: false,
   personal: {
     name: 'John Doe',
     jobTitle: 'Senior Smartass',
     image: profileImage,
+    company: 'Team Chaos GmbH',
+    insurance: {
+      name: 'Hiscox SA',
+      address: { street: ' Arnulfstraße 31', city: '80636 München' },
+      scope: 'Germany',
+    },
+    vatId: 'DE999999999',
   },
   contact: {
-    phone: '0123 1234567',
-    email: 'info@example.org',
-    xing: 'xing.com/profile/John_Doe',
-    city: 'Barcelona',
+    phone: contact.phone,
+    email: contact.email,
+    xing: contact.xing,
+    address: contact.address.city,
   },
   competencies: {
     Area1: [
