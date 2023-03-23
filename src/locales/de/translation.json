@@ -1,0 +1,16 @@
+{
+  "imprint": "Impressum",
+  "privacy": "Datenschutz",
+  "en": "English version",
+  "certificates": "Zertifikate",
+  "competencies": "Kompetenzen",
+  "contact": "Kontakt",
+  "education": "Ausbildung",
+  "projects": "Projekte",
+  "responsibilities": "Aufgaben",
+  "tools": "Methoden & Werkzeuge",
+  "underConstruction": {
+    "heading": "Under construction",
+    "text": "Diese Seite befindet sich gerade im Aufbau"
+  }
+}

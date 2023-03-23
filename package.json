@@ -32,12 +32,16 @@
     "gatsby-plugin-emotion": "^8.7.0",
     "gatsby-plugin-mdx": "^5.7.0",
     "gatsby-plugin-pdf": "github:pragtics/gatsby-plugin-pdf#main",
+    "gatsby-plugin-react-i18next": "^3.0.1",
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-transformer-remark": "^6.7.0",
+    "i18next": "^22.4.13",
+    "i18next-browser-languagedetector": "^7.0.1",
     "normalize.css": "^8.0.1",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0",
     "react-use-query-param-string": "^2.0.10"
   },
   "devDependencies": {

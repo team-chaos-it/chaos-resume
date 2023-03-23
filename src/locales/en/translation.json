@@ -1,0 +1,16 @@
+{
+  "imprint": "Imprint",
+  "privacy": "Privacy",
+  "de": "Deutsche Version",
+  "certificates": "Certificates",
+  "competencies": "Competencies",
+  "contact": "Contakt",
+  "education": "Education",
+  "projects": "Projects",
+  "responsibilities": "Responsibilities",
+  "tools": "Methods & Tools",
+  "underConstruction": {
+    "heading": "Under construction",
+    "text": "This page is currently under construction"
+  }
+}

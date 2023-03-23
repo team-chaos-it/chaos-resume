@@ -3,7 +3,7 @@ import { CSSObject } from '@emotion/react'
 const sizes = ['sm', 'md', 'lg']
 const breakpoints = [0, 600, 1200]
 
-type Sizes = (typeof sizes)[number]
+type Sizes = 'sm' | 'md' | 'lg'
 
 type CSSValue = keyof CSSObject
 
@@ -26,13 +26,16 @@ export const responsiveValue = <T extends CSSValue>(
     return { [propertyName]: propertyValue }
   }
 
-  const responsiveValues: PartialBreakpointMap<T> = {}
+  const responsiveValues: Record<
+    string,
+    Record<CSSValue, ResponsiveCSSObject<CSSValue>>
+  > = {}
 
   breakpoints.map(
     (breakpoint, index) =>
       (responsiveValues[`@media (min-width: ${breakpoint}px)`] = {
         [propertyName]: (propertyValue as PartialBreakpointMap<T>)[
-          sizes[index]
+          sizes[index] as Sizes
         ],
       }),
   )

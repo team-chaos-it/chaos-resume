@@ -1,9 +1,9 @@
 ---
-role: Senior Smartass
-title: Gin tasting
-sector: Gin
-from: 2022-09-01
-to: 2023-01-31
+role: Junior Smartass
+title: Wine tasting 4
+sector: Wine
+from: 2021-09-01
+to: 2022-01-31
 tasks:
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - Ut enim ad minim veniam, quis nostrud exercitation

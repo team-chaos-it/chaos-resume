@@ -1,11 +1,12 @@
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { graphql, Link as GatsbyLink } from 'gatsby'
 import { Footer } from '../components/shared/footer/footer'
 import { Heading } from '../components/shared/heading/Heading'
+import { Link } from '../components/shared/link/link'
 import { Stack } from '../components/shared/stack/Stack'
 import { Text } from '../components/shared/text/Text'
-import { contact, profile } from '../data/profile'
-import { Link } from '../components/shared/link/link'
+import { contact, profile } from '../data/profile-de'
 
 const Privacy = () => {
   const { name } = profile.personal
@@ -16,7 +17,7 @@ const Privacy = () => {
       gap="16px"
       css={{ paddingTop: '3rem', marginInline: '4rem', marginBottom: '2.5rem' }}
     >
-      <Link to="/">
+      <Link as={GatsbyLink} to="/">
         <Stack gap="8px" align="center">
           <FontAwesomeIcon size="lg" color="grey" icon={faChevronLeft} />
           <Text css={{ fontSize: '16px' }}>Zurück</Text>
@@ -381,11 +382,32 @@ const Privacy = () => {
         </Text>
       </Text>
       <Footer css={{ marginTop: '2rem' }}>
-        <Link to="/">CV</Link>
-        <Link to="/imprint">Impressum</Link>
+        <Link as={GatsbyLink} to="/">
+          CV
+        </Link>
+        <Link as={GatsbyLink} to="/imprint-de">
+          Impressum
+        </Link>
+        <Link as={GatsbyLink} to="/privacy-en">
+          English version
+        </Link>
       </Footer>
     </Stack>
   )
 }
 
 export default Privacy
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`

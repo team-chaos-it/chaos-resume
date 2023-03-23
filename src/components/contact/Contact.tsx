@@ -1,4 +1,5 @@
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
+import { useTranslation } from 'react-i18next'
 import { tokens } from '../../tokens'
 import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
@@ -14,6 +15,7 @@ export type ContactProps = {
 }
 
 export const Contact = ({ contacts }: ContactProps) => {
+  const { t } = useTranslation()
   return (
     <section>
       <Heading
@@ -21,7 +23,7 @@ export const Contact = ({ contacts }: ContactProps) => {
         textAlign={{ sm: 'center', md: 'start' }}
         css={[{ marginBottom: '2rem' }]}
       >
-        Kontakt
+        {t('contact')}
       </Heading>
       <Stack
         direction="column"
