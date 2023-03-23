@@ -1,14 +1,14 @@
-import { Stack, StackProps } from '../stack/Stack'
+import { ComponentProps } from 'react'
+import { Stack } from '../stack/Stack'
 
-export type FooterProps = StackProps
+export type FooterProps = ComponentProps<typeof Stack>
 
-export const Footer = (props: StackProps) => {
+export const Footer = (props: FooterProps) => {
   return (
     <Stack
       justify="center"
       gap="12px"
       css={{
-        padding: '20px',
         '@media print': {
           display: 'none',
         },

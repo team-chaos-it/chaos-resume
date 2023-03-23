@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { tokens } from '../../tokens'
 import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
@@ -8,6 +9,7 @@ export type CompetenciesProps = {
 }
 
 export const Competencies = ({ groups = {} }: CompetenciesProps) => {
+  const { t } = useTranslation()
   return (
     <section>
       <Heading
@@ -15,7 +17,7 @@ export const Competencies = ({ groups = {} }: CompetenciesProps) => {
         textAlign={{ sm: 'center', md: 'start' }}
         css={{ marginBottom: '2rem' }}
       >
-        Kompetenzen
+        {t('competencies')}
       </Heading>
       <Stack
         direction="column"

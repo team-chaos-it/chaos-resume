@@ -1,6 +1,6 @@
 ---
 role: Senior Smartass
-title: Gin tasting
+title: Gin tasting 5
 sector: Gin
 from: 2022-09-01
 to: 2023-01-31

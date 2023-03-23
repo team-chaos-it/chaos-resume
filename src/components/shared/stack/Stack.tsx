@@ -11,7 +11,7 @@ export type StackProps = {
   gap?: ResponsiveCSSObject<'gap'>
   direction?: ResponsiveCSSObject<'flexDirection'>
   wrap?: ResponsiveCSSObject<'flexWrap'>
-} & React.PropsWithChildren
+}
 
 export const Stack = forwardRef(
   ({ as, align, justify, gap, direction, wrap, ...props }, ref) => {

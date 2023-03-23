@@ -1,6 +1,7 @@
-import { Stack } from '../shared/stack/Stack'
-import { Heading } from '../shared/heading/Heading'
+import { useTranslation } from 'react-i18next'
 import { tokens } from '../../tokens'
+import { Heading } from '../shared/heading/Heading'
+import { Stack } from '../shared/stack/Stack'
 import { EducationItem, EducationItemProps } from './EducationItem'
 
 export type EducationProps = {
@@ -8,6 +9,7 @@ export type EducationProps = {
 }
 
 export const Education = ({ items = [] }: EducationProps) => {
+  const { t } = useTranslation()
   return (
     <section>
       <Heading
@@ -15,7 +17,7 @@ export const Education = ({ items = [] }: EducationProps) => {
         css={{ marginBottom: '2rem' }}
         textAlign={{ sm: 'center', md: 'start' }}
       >
-        Ausbildung
+        {t('education')}
       </Heading>
       <Stack
         direction="column"

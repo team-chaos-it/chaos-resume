@@ -12,8 +12,35 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'projects',
-        path: path.join(__dirname, '/src/data/projects/'),
+        name: 'de',
+        path: path.join(__dirname, '/src/data/projects/de'),
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'en',
+        path: path.join(__dirname, '/src/data/projects/en'),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, '/src/locales'),
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`en`, `de`],
+        defaultLanguage: `de`,
+        redirect: false,
+        i18nextOptions: {
+          keySeparator: false,
+          nsSeparator: false,
+        },
       },
     },
     'gatsby-transformer-remark',
@@ -22,7 +49,7 @@ const config: GatsbyConfig = {
       options: {
         allPages: false,
         useRegexPaths: false,
-        paths: ['/'],
+        paths: ['/', '/en/'],
         outputPath: '/public/pdf',
         pdfOptions: {
           printBackground: true,

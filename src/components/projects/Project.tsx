@@ -1,8 +1,9 @@
-import { Stack } from '../shared/stack/Stack'
-import { Heading } from '../shared/heading/Heading'
-import { Text } from '../shared/text/Text'
+import { useTranslation } from 'react-i18next'
 import { tokens } from '../../tokens'
 import { responsiveValue } from '../../utils/ResponsiveUtils'
+import { Heading } from '../shared/heading/Heading'
+import { Stack } from '../shared/stack/Stack'
+import { Text } from '../shared/text/Text'
 
 export type ProjectProps = {
   title: string
@@ -26,6 +27,7 @@ export const Project = ({
   html,
   ...props
 }: ProjectProps) => {
+  const { t } = useTranslation()
   return (
     <Stack
       direction="column"
@@ -85,7 +87,7 @@ export const Project = ({
         <div dangerouslySetInnerHTML={{ __html: html }} />
         {tasks && (
           <div>
-            <Text bold>Aufgaben</Text>
+            <Text bold> {t('responsibilities')}</Text>
             <ul>
               {tasks.map((value) => (
                 <li key={value}>{value}</li>
@@ -95,7 +97,7 @@ export const Project = ({
         )}
         {tools && (
           <div>
-            <Text bold>Methoden & Werkzeuge</Text>
+            <Text bold>{t('tools')}</Text>
             <Text>{tools?.join(' | ')}</Text>
           </div>
         )}

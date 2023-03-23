@@ -1,4 +1,10 @@
-import { graphql, PageProps } from 'gatsby'
+import { graphql, Link as GatsbyLink, PageProps } from 'gatsby'
+import {
+  I18nextContext,
+  Link as GatsbyLinkI18n,
+  useI18next,
+  useTranslation,
+} from 'gatsby-plugin-react-i18next'
 import * as React from 'react'
 import { useQueryParamString } from 'react-use-query-param-string'
 import { Certifications } from '../components/certifications/Certifications'
@@ -9,12 +15,13 @@ import { PrintHeader } from '../components/header/PrintHeader'
 import { ScreenHeader } from '../components/header/ScreenHeader'
 import { ProjectProps } from '../components/projects/Project'
 import { Projects } from '../components/projects/Projects'
-import { Link } from '../components/shared/link/link'
 import { Footer } from '../components/shared/footer/footer'
+import { Link } from '../components/shared/link/link'
 import { Stack } from '../components/shared/stack/Stack'
 import { StackDivider } from '../components/shared/stack/StackDivider'
 import { UnderConstruction } from '../components/under-construction/UnderConstruction'
-import { profile } from '../data/profile'
+import { profile as profileDe } from '../data/profile-de'
+import { profile as profileEn } from '../data/profile-en'
 import { responsiveValue } from '../utils/ResponsiveUtils'
 
 type DataProps = {
@@ -37,9 +44,15 @@ type DataProps = {
 }
 
 const IndexPage = ({ data }: PageProps<DataProps>) => {
-  const [toolsFilter] = useQueryParamString('tools', '')
+  const { languages, originalPath } = useI18next()
+  type Language = 'de' | 'en'
 
-  if (profile.useUnderConstructionPage) {
+  const currentLanguage = React.useContext(I18nextContext).language as Language
+  const { t } = useTranslation()
+  const [toolsFilter] = useQueryParamString('tools', '')
+  const profile = { de: profileDe, en: profileEn }
+
+  if (profile[currentLanguage].useUnderConstructionPage) {
     return <UnderConstruction />
   }
 
@@ -78,23 +91,23 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
         }}
       >
         <PrintHeader
-          name={profile.personal.name}
-          jobTitle={profile.personal.jobTitle}
+          name={profile[currentLanguage].personal.name}
+          jobTitle={profile[currentLanguage].personal.jobTitle}
         />
-        <ScreenHeader {...profile.personal} />
+        <ScreenHeader {...profile[currentLanguage].personal} />
         <Stack
           direction={{ sm: 'column', md: 'row' }}
           gap={{ sm: 0, md: '5rem' }}
           css={responsiveValue('paddingInline', { sm: '2rem', md: '4rem' })}
         >
           <Stack direction="column" gap="2rem">
-            <Contact contacts={profile.contact} />
+            <Contact contacts={profile[currentLanguage].contact} />
             <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
-            <Competencies groups={profile.competencies}></Competencies>
+            <Competencies groups={profile[currentLanguage].competencies} />
             <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
-            <Education items={profile.education} />
+            <Education items={profile[currentLanguage].education} />
             <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
-            <Certifications items={profile.certifications} />
+            <Certifications items={profile[currentLanguage].certifications} />
           </Stack>
           <StackDivider
             maxWidth={'100%'}
@@ -106,9 +119,26 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           <Projects projects={[...projects]} />
         </Stack>
       </table>
-      <Footer>
-        <Link to="/imprint">Impressum</Link>
-        <Link to="/privacy">Datenschutz</Link>
+      <Footer css={{ paddingTop: '20px', paddingBottom: '10px' }}>
+        <Link as={GatsbyLink} to={`/imprint-${currentLanguage}`}>
+          {t('imprint')}
+        </Link>
+        <Link as={GatsbyLink} to={`/privacy-${currentLanguage}`}>
+          {t('privacy')}
+        </Link>
+        <Link
+          as={GatsbyLinkI18n}
+          to={originalPath}
+          language={
+            languages.filter((language) => language !== currentLanguage)[0]
+          }
+        >
+          {t(
+            `${
+              languages.filter((language) => language !== currentLanguage)[0]
+            }`,
+          )}
+        </Link>
       </Footer>
     </React.Fragment>
   )
@@ -116,20 +146,28 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
 export default IndexPage
 
 export const query = graphql`
-  {
-    files: allMarkdownRemark {
-      projects: edges {
-        project: node {
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    files: allFile(filter: { sourceInstanceName: { eq: $language } }) {
+      projects: nodes {
+        project: childMarkdownRemark {
           frontmatter {
             role
-            title
             sector
             tasks
+            title
             tools
             from(formatString: "MM/YYYY")
             to(formatString: "MM/YYYY")
           }
-          html
         }
       }
     }

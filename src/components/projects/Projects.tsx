@@ -1,14 +1,16 @@
+import { useTranslation } from 'react-i18next'
+import { tokens } from '../../tokens'
+import { responsiveValue } from '../../utils/ResponsiveUtils'
+import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
 import { Project, ProjectProps } from './Project'
-import { tokens } from '../../tokens'
-import { Heading } from '../shared/heading/Heading'
-import { responsiveValue } from '../../utils/ResponsiveUtils'
 
 export type ProjectsProps = {
   projects: Array<ProjectProps>
 }
 
 export const Projects = ({ projects, ...props }: ProjectsProps) => {
+  const { t } = useTranslation()
   return (
     <section {...props}>
       <Heading
@@ -19,7 +21,7 @@ export const Projects = ({ projects, ...props }: ProjectsProps) => {
           responsiveValue('marginLeft', { sm: '0', md: '4rem' }),
         ]}
       >
-        Projekte
+        {t('projects')}
       </Heading>
       <Stack
         direction="column"

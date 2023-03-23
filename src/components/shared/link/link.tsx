@@ -1,14 +1,12 @@
-import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby'
-import { PropsWithoutRef } from 'react'
+import { forwardRef } from 'react'
 import { base, tokens } from '../../../tokens'
+import { Polymorphic } from '../../../utils/PolymorphicUtils'
 
-export type FooterLinkProps = PropsWithoutRef<
-  GatsbyLinkProps<Record<string, never>>
->
+export const Link = forwardRef(({ as, ...props }) => {
+  const Component = as || 'a'
 
-export const Link = (props: FooterLinkProps) => {
   return (
-    <GatsbyLink
+    <Component
       css={{
         ...tokens.text.font,
         textDecoration: 'none',
@@ -22,4 +20,4 @@ export const Link = (props: FooterLinkProps) => {
       {...props}
     />
   )
-}
+}) as Polymorphic<'a'>
