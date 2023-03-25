@@ -1,5 +1,6 @@
 import type { GatsbyConfig } from 'gatsby'
 import path from 'path'
+import { settings } from './src/data/settings'
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -34,7 +35,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`,
-        languages: [`en`, `de`],
+        languages: settings.useLocalization ? [`en`, `de`] : [`de`],
         defaultLanguage: `de`,
         redirect: false,
         i18nextOptions: {

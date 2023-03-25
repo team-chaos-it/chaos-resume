@@ -7,6 +7,7 @@ import { Link } from '../components/shared/link/link'
 import { Stack } from '../components/shared/stack/Stack'
 import { Text } from '../components/shared/text/Text'
 import { contact, profile } from '../data/profile-de'
+import { settings } from '../data/settings'
 
 const Privacy = () => {
   const { name } = profile.personal
@@ -354,9 +355,11 @@ const Privacy = () => {
         <Link as={GatsbyLink} to="/imprint-en">
           Imprint
         </Link>
-        <Link as={GatsbyLink} to="/privacy-de">
-          Deutsche Version
-        </Link>
+        {settings.useLocalization && (
+          <Link as={GatsbyLink} to="/privacy-de">
+            Deutsche Version
+          </Link>
+        )}
       </Footer>
     </Stack>
   )

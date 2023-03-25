@@ -1,5 +1,5 @@
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { tokens } from '../../tokens'
 import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
