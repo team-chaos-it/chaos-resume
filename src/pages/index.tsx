@@ -98,27 +98,35 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
         />
         <ScreenHeader name={name} jobTitle={jobTitle} image={image} />
         <Stack
+          as="tbody"
           direction={{ sm: 'column', md: 'row' }}
           gap={{ sm: 0, md: '5rem' }}
           css={responsiveValue('paddingInline', { sm: '2rem', md: '4rem' })}
         >
-          <Stack direction="column" gap="2rem">
-            <Contact contacts={profile[currentLanguage].contact} />
-            <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
-            <Competencies groups={profile[currentLanguage].competencies} />
-            <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
-            <Education items={profile[currentLanguage].education} />
-            <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
-            <Certifications items={profile[currentLanguage].certifications} />
-          </Stack>
+          <tr>
+            <Stack as="td" direction="column" gap="2rem">
+              <Contact contacts={profile[currentLanguage].contact} />
+              <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
+              <Competencies groups={profile[currentLanguage].competencies} />
+              <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
+              <Education items={profile[currentLanguage].education} />
+              <StackDivider maxWidth={{ sm: '100%', md: '90%' }} />
+              <Certifications items={profile[currentLanguage].certifications} />
+            </Stack>
+          </tr>
           <StackDivider
+            as="tr"
             maxWidth={'100%'}
             css={[
               { marginTop: '2rem', marginBottom: '2rem' },
               responsiveValue('display', { sm: 'block', md: 'none' }),
             ]}
           />
-          <Projects projects={[...projects]} />
+          <tr>
+            <td>
+              <Projects projects={[...projects]} />
+            </td>
+          </tr>
         </Stack>
       </table>
       <Footer css={{ paddingTop: '20px', marginBottom: '2.5rem' }}>

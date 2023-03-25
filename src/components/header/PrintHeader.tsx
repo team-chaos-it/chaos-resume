@@ -23,6 +23,7 @@ export const PrintHeader = ({ name, jobTitle, ...props }: PrintHeaderProps) => {
       {...props}
     >
       <Stack
+        as="tr"
         direction="column"
         gap={{ sm: '2rem', md: '1rem' }}
         css={[
@@ -31,18 +32,20 @@ export const PrintHeader = ({ name, jobTitle, ...props }: PrintHeaderProps) => {
           responsiveValue('marginBottom', { sm: '2rem', md: '0' }),
         ]}
       >
-        <Heading
-          as="h1"
-          size="lg"
-          textAlign="center"
-          css={{
-            wordSpacing: '100vw',
-          }}
-        >
-          {name}
-        </Heading>
-
+        <th>
+          <Heading
+            as="h1"
+            size="lg"
+            textAlign="center"
+            css={{
+              wordSpacing: '100vw',
+            }}
+          >
+            {name}
+          </Heading>
+        </th>
         <Stack
+          as="td"
           css={{
             borderBlock: '1px solid',
             borderBlockColor: base.colors['grey-200'],
@@ -55,7 +58,7 @@ export const PrintHeader = ({ name, jobTitle, ...props }: PrintHeaderProps) => {
           </Heading>
         </Stack>
       </Stack>
-      <div
+      <tr
         css={{
           marginTop: '2.5rem',
           marginBottom: '3rem',
