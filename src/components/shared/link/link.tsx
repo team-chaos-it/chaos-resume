@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 import { base, tokens } from '../../../tokens'
 import { Polymorphic } from '../../../utils/PolymorphicUtils'
 
-export const Link = forwardRef(({ as, ...props }) => {
+export const Link = forwardRef(({ as, ...props }, ref) => {
   const Component = as || 'a'
 
   return (
@@ -18,6 +18,7 @@ export const Link = forwardRef(({ as, ...props }) => {
         transition: `background-color 300ms cubic-bezier(0.22, 1, 0.36, 1)`,
       }}
       {...props}
+      ref={ref}
     />
   )
 }) as Polymorphic<'a'>

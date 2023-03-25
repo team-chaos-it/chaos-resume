@@ -16,7 +16,7 @@ export const ScreenHeader = ({
   ...props
 }: ScreenHeaderProps) => {
   return (
-    <div
+    <thead
       css={{
         zIndex: 1,
         backgroundColor: '#ffffff',
@@ -36,52 +36,60 @@ export const ScreenHeader = ({
       {...props}
     >
       <Stack
+        as="tr"
         direction="column"
         gap="1rem"
         css={{
           marginInline: '4rem',
         }}
       >
-        <Heading
-          as="h1"
-          size="lg"
-          css={{
-            wordSpacing: '100vw',
-          }}
-        >
-          {name}
-        </Heading>
-
-        <Stack
-          css={{
-            marginRight: '5rem',
-            borderBlock: '1px solid',
-            borderBlockColor: base.colors['grey-200'],
-            paddingBlock: '1.25rem',
-          }}
-        >
-          <Heading as="h2" size="md">
-            {jobTitle}
+        <th>
+          <Heading
+            as="h1"
+            size="lg"
+            css={{
+              wordSpacing: '100vw',
+            }}
+          >
+            {name}
           </Heading>
-        </Stack>
+        </th>
+        <td>
+          <Stack
+            css={{
+              marginRight: '5rem',
+              borderBlock: '1px solid',
+              borderBlockColor: base.colors['grey-200'],
+              paddingBlock: '1.25rem',
+            }}
+          >
+            <Heading as="h2" size="md">
+              {jobTitle}
+            </Heading>
+          </Stack>
+        </td>
       </Stack>
 
-      <img
-        css={{
-          width: '190px',
-          height: '190px',
-          position: 'absolute',
-          top: '1.25rem',
-          right: '2rem',
-          border: '1.5rem solid white',
-          borderRadius: '100%',
-          backgroundColor: 'black',
-          '@media print': {
-            top: '-1.25rem',
-          },
-        }}
-        src={image}
-      />
-    </div>
+      <tr>
+        <td>
+          <img
+            css={{
+              width: '190px',
+              height: '190px',
+              position: 'absolute',
+              top: '1.25rem',
+              right: '2rem',
+              border: '1.5rem solid white',
+              borderRadius: '100%',
+              backgroundColor: 'black',
+              '@media print': {
+                top: '-1.25rem',
+              },
+            }}
+            src={image}
+          />
+        </td>
+      </tr>
+    </thead>
   )
 }

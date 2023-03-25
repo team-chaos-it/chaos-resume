@@ -1,4 +1,6 @@
+import { forwardRef } from 'react'
 import { base } from '../../../tokens'
+import { Polymorphic } from '../../../utils/PolymorphicUtils'
 import {
   ResponsiveCSSObject,
   responsiveValue,
@@ -9,9 +11,10 @@ export type DividerProps = {
   maxWidth: ResponsiveCSSObject<'maxWidth'>
 }
 
-export const StackDivider = ({ maxWidth, ...props }: DividerProps) => {
+export const StackDivider = forwardRef(({ as, maxWidth, ...props }, ref) => {
+  const Component = as || 'div'
   return (
-    <div
+    <Component
       css={{
         borderTop: '1px solid',
         borderLeft: '1px solid',
@@ -19,6 +22,7 @@ export const StackDivider = ({ maxWidth, ...props }: DividerProps) => {
         ...responsiveValue('maxWidth', maxWidth),
       }}
       {...props}
+      ref={ref}
     />
   )
-}
+}) as Polymorphic<'div', DividerProps>
