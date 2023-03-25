@@ -8,6 +8,7 @@ import { Text } from '../components/shared/text/Text'
 import { contact, profile } from '../data/profile-de'
 
 import { graphql, Link as GatsbyLink } from 'gatsby'
+import { settings } from '../data/settings'
 
 const Imprint = () => {
   const { name, insurance, company, vatId } = profile.personal
@@ -120,9 +121,11 @@ const Imprint = () => {
         <Link as={GatsbyLink} to="/privacy-de">
           Datenschutzerklärung
         </Link>
-        <Link as={GatsbyLink} to="/imprint-en">
-          English version
-        </Link>
+        {settings.useLocalization && (
+          <Link as={GatsbyLink} to="/imprint-en">
+            English version
+          </Link>
+        )}
       </Footer>
     </Stack>
   )

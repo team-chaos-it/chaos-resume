@@ -22,6 +22,7 @@ import { StackDivider } from '../components/shared/stack/StackDivider'
 import { UnderConstruction } from '../components/under-construction/UnderConstruction'
 import { profile as profileDe } from '../data/profile-de'
 import { profile as profileEn } from '../data/profile-en'
+import { settings } from '../data/settings'
 import { responsiveValue } from '../utils/ResponsiveUtils'
 
 type DataProps = {
@@ -80,6 +81,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
       html: p.project.html,
     }))
     .filter(matchesFilter)
+  const { name, jobTitle, image } = profile[currentLanguage].personal
 
   return (
     <React.Fragment>
@@ -94,7 +96,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           name={profile[currentLanguage].personal.name}
           jobTitle={profile[currentLanguage].personal.jobTitle}
         />
-        <ScreenHeader {...profile[currentLanguage].personal} />
+        <ScreenHeader name={name} jobTitle={jobTitle} image={image} />
         <Stack
           direction={{ sm: 'column', md: 'row' }}
           gap={{ sm: 0, md: '5rem' }}
@@ -119,26 +121,28 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           <Projects projects={[...projects]} />
         </Stack>
       </table>
-      <Footer css={{ paddingTop: '20px', paddingBottom: '10px' }}>
+      <Footer css={{ paddingTop: '20px', marginBottom: '2.5rem' }}>
         <Link as={GatsbyLink} to={`/imprint-${currentLanguage}`}>
           {t('imprint')}
         </Link>
         <Link as={GatsbyLink} to={`/privacy-${currentLanguage}`}>
           {t('privacy')}
         </Link>
-        <Link
-          as={GatsbyLinkI18n}
-          to={originalPath}
-          language={
-            languages.filter((language) => language !== currentLanguage)[0]
-          }
-        >
-          {t(
-            `${
+        {settings.useLocalization && (
+          <Link
+            as={GatsbyLinkI18n}
+            to={originalPath}
+            language={
               languages.filter((language) => language !== currentLanguage)[0]
-            }`,
-          )}
-        </Link>
+            }
+          >
+            {t(
+              `${
+                languages.filter((language) => language !== currentLanguage)[0]
+              }`,
+            )}
+          </Link>
+        )}
       </Footer>
     </React.Fragment>
   )

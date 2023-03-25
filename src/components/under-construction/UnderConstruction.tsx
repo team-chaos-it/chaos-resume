@@ -1,6 +1,6 @@
 import { faPersonDigging } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { base } from '../../tokens'
 import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
