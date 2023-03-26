@@ -21,7 +21,7 @@ const Imprint = () => {
       <Link as={GatsbyLink} to="/">
         <Stack gap="8px" align="center">
           <FontAwesomeIcon size="lg" color="grey" icon={faChevronLeft} />
-          <Text css={{ fontSize: '16px' }}>Zurück</Text>
+          <Text css={{ fontSize: '16px' }}>Back</Text>
         </Stack>
       </Link>
       <Heading size="md" as="h1" css={{ fontWeight: 800, fontSize: '20px' }}>
