@@ -1,7 +1,7 @@
 import { CSSObject } from '@emotion/react'
 
 const sizes = ['sm', 'md', 'lg']
-const breakpoints = [0, 600, 1200]
+const breakpoints = [0, 790, 1200]
 
 type Sizes = 'sm' | 'md' | 'lg'
 
