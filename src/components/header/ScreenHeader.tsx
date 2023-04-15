@@ -49,6 +49,7 @@ export const ScreenHeader = ({
             size="lg"
             css={{
               wordSpacing: '100vw',
+              textAlign: 'start',
             }}
           >
             {name}
