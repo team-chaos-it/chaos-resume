@@ -14,7 +14,6 @@ export const contact = {
 }
 
 export const profile = {
-  useUnderConstructionPage: false,
   personal: {
     name: 'John Doe',
     jobTitle: 'Klugscheißer',

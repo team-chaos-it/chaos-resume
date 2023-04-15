@@ -1,7 +1,7 @@
-import { graphql, Link as GatsbyLink, PageProps } from 'gatsby'
+import { Link as GatsbyLink, PageProps, graphql } from 'gatsby'
 import {
-  I18nextContext,
   Link as GatsbyLinkI18n,
+  I18nextContext,
   useI18next,
   useTranslation,
 } from 'gatsby-plugin-react-i18next'
@@ -53,7 +53,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
   const [toolsFilter] = useQueryParamString('tools', '')
   const profile = { de: profileDe, en: profileEn }
 
-  if (profile[currentLanguage].useUnderConstructionPage) {
+  if (settings.useUnderConstructionPage) {
     return <UnderConstruction />
   }
 
