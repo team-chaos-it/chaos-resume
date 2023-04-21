@@ -15,7 +15,8 @@ permissions:
 jobs:
   build:
     permissions:
-     contents: write
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -27,6 +28,8 @@ jobs:
         with:
           cache: 'npm'
           node-version: 18
+      - name: Setup playwright dependencies
+        run: npx playwright install-deps
       - name: Install dependencies
         run: npm ci --force
       - name: Typecheck
@@ -43,7 +46,19 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./public   
-          retention-days: 1  
+          retention-days: 1
+      - name: Move screenshots
+        run: mkdir ./screenshots && mv ./screenshots-desktop ./screenshots/desktop && mv ./screenshots-mobile ./screenshots/mobile
+      - uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          retention-days: 14
+          path: |
+            ./screenshots
+      - name: Comment screenshots links
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: "Download screenshots at https://github.com/${{github.repository}}/actions/runs/${{ github.run_id }}#artifacts"
   deploy:
     if: ${{ github.ref == 'refs/heads/main' && github.repository != 'team-chaos-it/chaos-resume' }} 
     environment:

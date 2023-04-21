@@ -65,6 +65,24 @@ const config: GatsbyConfig = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-playwright',
+      options: {
+        screenshotsDir: './screenshots-desktop',
+        context: {
+          viewport: { width: 1280, height: 1500 },
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-playwright',
+      options: {
+        screenshotsDir: './screenshots-mobile',
+        context: {
+          viewport: { width: 414, height: 896 },
+        },
+      },
+    },
   ],
 }
 
