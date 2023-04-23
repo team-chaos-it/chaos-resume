@@ -3,6 +3,7 @@ import { tokens } from '../../tokens'
 import { responsiveValue } from '../../utils/ResponsiveUtils'
 import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
+import { TaskList } from '../task-list/TaskList'
 import { Text } from '../shared/text/Text'
 
 export type ProjectProps = {
@@ -88,11 +89,29 @@ export const Project = ({
         {tasks && (
           <div>
             <Text bold> {t('responsibilities')}</Text>
-            <ul>
-              {tasks.map((value) => (
-                <li key={value}>{value}</li>
-              ))}
-            </ul>
+            <TaskList
+              css={{
+                '@media print': {
+                  display: 'none',
+                },
+                '@media screen': {
+                  display: 'block',
+                },
+              }}
+              tasks={tasks}
+              hideAfterLines={3}
+            />
+            <TaskList
+              css={{
+                '@media print': {
+                  display: 'block',
+                },
+                '@media screen': {
+                  display: 'none',
+                },
+              }}
+              tasks={tasks}
+            />
           </div>
         )}
         {tools && (

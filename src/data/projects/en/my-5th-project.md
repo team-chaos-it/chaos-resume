@@ -8,6 +8,9 @@ tasks:
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - Ut enim ad minim veniam, quis nostrud exercitation
   - Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit1
+  - Ut enim ad minim veniam, quis nostrud exercitation2
+  - Excepteur sint occaecat cupidatat non proident, sunt in culpa qui3
 tools:
   - Tool 1
   - Tool 2
