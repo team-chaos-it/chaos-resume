@@ -31,7 +31,7 @@ export const CompetenciesItem = ({
         }}
         value={level}
         max="100"
-      ></progress>
+      />
     </Stack>
   )
 }

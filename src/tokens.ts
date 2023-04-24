@@ -5,6 +5,7 @@ export const base = {
     'grey-300': '#626262',
     'grey-400': '#595959',
     'grey-500': '#0D0D0D',
+    highlight: '#0099ab',
   },
   font: {
     fontFamily: 'IBM Plex Sans, sans-serif',

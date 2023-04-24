@@ -7,6 +7,7 @@ import {
 } from 'gatsby-plugin-react-i18next'
 import * as React from 'react'
 import { useQueryParamString } from 'react-use-query-param-string'
+import { Banner } from '../components/banner/Banner'
 import { Certifications } from '../components/certifications/Certifications'
 import { Competencies } from '../components/competencies/Competencies'
 import { Contact } from '../components/contact/Contact'
@@ -19,11 +20,21 @@ import { Footer } from '../components/shared/footer/footer'
 import { Link } from '../components/shared/link/link'
 import { Stack } from '../components/shared/stack/Stack'
 import { StackDivider } from '../components/shared/stack/StackDivider'
+import { Text } from '../components/shared/text/Text'
 import { UnderConstruction } from '../components/under-construction/UnderConstruction'
-import { profile as profileDe } from '../data/profile-de'
+import { contact, profile as profileDe } from '../data/profile-de'
 import { profile as profileEn } from '../data/profile-en'
 import { settings } from '../data/settings'
+import { base } from '../tokens'
 import { responsiveValue } from '../utils/ResponsiveUtils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { AnimatePresence, motion } from 'framer-motion'
+import {
+  faChevronLeft,
+  faCopy,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
 
 type DataProps = {
   files: {
@@ -45,6 +56,7 @@ type DataProps = {
 }
 
 const IndexPage = ({ data }: PageProps<DataProps>) => {
+  const [openBanner, setOpenBanner] = useState(true)
   const { languages, originalPath } = useI18next()
   type Language = 'de' | 'en'
 
@@ -152,6 +164,26 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           </Link>
         )}
       </Footer>
+      <AnimatePresence>
+        {openBanner && (
+          <Banner
+            css={{
+              '@media print': {
+                display: 'none',
+              },
+              '@media screen': {
+                display: 'flex',
+              },
+            }}
+            initial={{ height: 'auto', paddingBlock: '25px' }}
+            animate={{ height: 'auto', paddingBlock: '25px' }}
+            exit={{ height: 0, paddingBlock: 0 }}
+            as={motion.div}
+            onButtonClose={() => setOpenBanner(false)}
+            transition={{ duration: 0.3 }}
+          />
+        )}
+      </AnimatePresence>
     </React.Fragment>
   )
 }
