@@ -11,6 +11,7 @@ export const TaskList = ({
     <ul
       css={{
         position: 'relative',
+        margin:0,
       }}
       {...props}
     >

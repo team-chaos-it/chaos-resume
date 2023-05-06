@@ -86,6 +86,12 @@ export const Project = ({
         }}
       >
         <div dangerouslySetInnerHTML={{ __html: html }} />
+        {tools && (
+          <div>
+            <Text bold>{t('tools')}</Text>
+            <Text>{tools?.join(' | ')}</Text>
+          </div>
+        )}
         {tasks && (
           <div>
             <Text bold> {t('responsibilities')}</Text>
@@ -112,12 +118,6 @@ export const Project = ({
               }}
               tasks={tasks}
             />
-          </div>
-        )}
-        {tools && (
-          <div>
-            <Text bold>{t('tools')}</Text>
-            <Text>{tools?.join(' | ')}</Text>
           </div>
         )}
       </Stack>
