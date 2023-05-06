@@ -212,6 +212,7 @@ export const query = graphql`
             from(formatString: "MM/YYYY")
             to(formatString: "MM/YYYY")
           }
+          html
         }
       }
     }
