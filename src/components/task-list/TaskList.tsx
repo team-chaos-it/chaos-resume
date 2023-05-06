@@ -1,4 +1,4 @@
-import { Task } from './task'
+import { Task } from './Task'
 
 type TaskListProps = { tasks: string[]; hideAfterLines?: number }
 
@@ -11,7 +11,7 @@ export const TaskList = ({
     <ul
       css={{
         position: 'relative',
-        margin:0,
+        margin: 0,
       }}
       {...props}
     >

@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { Link as GatsbyLink, PageProps, graphql } from 'gatsby'
 import {
   Link as GatsbyLinkI18n,
@@ -6,8 +7,8 @@ import {
   useTranslation,
 } from 'gatsby-plugin-react-i18next'
 import * as React from 'react'
+import { useState } from 'react'
 import { useQueryParamString } from 'react-use-query-param-string'
-import { Banner } from '../components/banner/Banner'
 import { Certifications } from '../components/certifications/Certifications'
 import { Competencies } from '../components/competencies/Competencies'
 import { Contact } from '../components/contact/Contact'
@@ -16,25 +17,16 @@ import { PrintHeader } from '../components/header/PrintHeader'
 import { ScreenHeader } from '../components/header/ScreenHeader'
 import { ProjectProps } from '../components/projects/Project'
 import { Projects } from '../components/projects/Projects'
-import { Footer } from '../components/shared/footer/footer'
-import { Link } from '../components/shared/link/link'
+import { Footer } from '../components/shared/footer/Footer'
+import { Link } from '../components/shared/link/Link'
 import { Stack } from '../components/shared/stack/Stack'
 import { StackDivider } from '../components/shared/stack/StackDivider'
-import { Text } from '../components/shared/text/Text'
 import { UnderConstruction } from '../components/under-construction/UnderConstruction'
-import { contact, profile as profileDe } from '../data/profile-de'
+import { profile as profileDe } from '../data/profile-de'
 import { profile as profileEn } from '../data/profile-en'
 import { settings } from '../data/settings'
-import { base } from '../tokens'
 import { responsiveValue } from '../utils/ResponsiveUtils'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { AnimatePresence, motion } from 'framer-motion'
-import {
-  faChevronLeft,
-  faCopy,
-  faXmark,
-} from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
+import { Banner } from '../components/banner/Banner'
 
 type DataProps = {
   files: {
@@ -175,8 +167,8 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
                 display: 'flex',
               },
             }}
-            initial={{ height: 'auto', paddingBlock: '25px' }}
-            animate={{ height: 'auto', paddingBlock: '25px' }}
+            initial={{ height: 'auto' }}
+            animate={{ height: 'auto' }}
             exit={{ height: 0, paddingBlock: 0 }}
             as={motion.div}
             onButtonClose={() => setOpenBanner(false)}

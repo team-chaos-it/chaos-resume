@@ -27,6 +27,7 @@ export const Banner = React.forwardRef(
     return (
       <Component
         css={{
+          display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           position: 'sticky',
@@ -34,6 +35,7 @@ export const Banner = React.forwardRef(
           paddingInline: '25px',
           borderRadius: '4px',
           backgroundColor: 'white',
+          paddingBlock: '25px',
           boxShadow:
             '0px 0px 2px 0px rgba(0, 0, 0, 0.04), 0px 2px 4px 0px rgba(0, 0, 0, 0.04), 0px 4px 8px 0px rgba(0, 0, 0, 0.04), 0px 8px 16px 0px rgba(0, 0, 0, 0.04), 0px 16px 32px 0px rgba(0, 0, 0, 0.04)',
           filter:

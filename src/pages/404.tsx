@@ -2,7 +2,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link as GatsbyLink } from 'gatsby'
 import { Heading } from '../components/shared/heading/Heading'
-import { Link } from '../components/shared/link/link'
+import { Link } from '../components/shared/link/Link'
 import { Stack } from '../components/shared/stack/Stack'
 import { Text } from '../components/shared/text/Text'
 
