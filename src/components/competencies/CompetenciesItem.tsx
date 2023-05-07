@@ -28,6 +28,9 @@ export const CompetenciesItem = ({
           '::-webkit-progress-value': {
             backgroundColor: base.colors['grey-300'],
           },
+          '::-moz-progress-bar ': {
+            backgroundColor: base.colors['grey-300'],
+          },
         }}
         value={level}
         max="100"
