@@ -34,7 +34,7 @@ export const CertificationsItem = ({
         </Heading>
       )}
       <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
-        {authority} | {date}
+        {authority} {date ? '|' : undefined} {date}
       </Heading>
     </Stack>
   )
