@@ -5,7 +5,7 @@ import { Stack } from '../shared/stack/Stack'
 export type EducationItemProps = PropsWithChildren & {
   title: string
   subtitle?: string
-  from: string
+  from?: string
   to?: string
 }
 
@@ -33,9 +33,17 @@ export const EducationItem = ({
           {subtitle}
         </Heading>
       )}
-      <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
-        {to ? `${from} - ${to}` : `seit ${from}`}
-      </Heading>
+      {(to || from) && (
+        <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
+          {from && to
+            ? `${from} - ${to}`
+            : from
+            ? `seit ${from}`
+            : to
+            ? `bis ${to}`
+            : ''}
+        </Heading>
+      )}
     </Stack>
   )
 }

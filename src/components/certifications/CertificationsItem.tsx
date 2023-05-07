@@ -5,8 +5,8 @@ import { Stack } from '../shared/stack/Stack'
 export type CertificationsItemProps = PropsWithChildren & {
   title: string
   subtitle?: string
-  authority: string
-  date: string
+  authority?: string
+  date?: string
 }
 
 export const CertificationsItem = ({
@@ -33,9 +33,11 @@ export const CertificationsItem = ({
           {subtitle}
         </Heading>
       )}
-      <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
-        {authority} {date ? '|' : undefined} {date}
-      </Heading>
+      {(authority || date) && (
+        <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
+          {authority} {authority && date ? '|' : undefined} {date}
+        </Heading>
+      )}
     </Stack>
   )
 }
