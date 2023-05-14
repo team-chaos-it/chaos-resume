@@ -59,10 +59,11 @@ export const Project = ({
 
       <Stack direction="column" gap="2px">
         <Heading size="sm">
-          {role} - {title}
+          {role} {role && title ? ' - ' : ''} {title}
         </Heading>
         <Heading size="xs">
-          {sector} | {to ? `${from} - ${to}` : `seit ${from}`}
+          {sector} {sector && (to || from) ? ' | ' : ''}
+          {from && to ? `${from} - ${to}` : from ? `${t('from')} ${from}` : ''}
         </Heading>
       </Stack>
       <Stack

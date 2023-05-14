@@ -1,9 +1,7 @@
 ---
 role: Senior Smartass
 title: Gin tasting 2
-sector: Gin
 from: 2022-09-01
-to: 2023-01-31
 tasks:
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - Ut enim ad minim veniam, quis nostrud exercitation
