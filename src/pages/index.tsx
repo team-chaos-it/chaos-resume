@@ -193,7 +193,10 @@ export const query = graphql`
       }
     }
     files: allFile(
-      filter: { sourceInstanceName: { eq: $language } }
+      filter: {
+        sourceInstanceName: { eq: $language }
+        childMarkdownRemark: { frontmatter: { hidden: { ne: true } } }
+      }
       sort: { childMarkdownRemark: { frontmatter: { from: DESC } } }
     ) {
       projects: nodes {
