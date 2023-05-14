@@ -12,7 +12,11 @@ export type ContactItemProps = PropsWithChildren & {
 export const ContactItem = ({ icon, ...props }: ContactItemProps) => {
   return (
     <Stack gap="1.25rem" align="center">
-      <FontAwesomeIcon icon={icon} color={tokens.text.font.color} />
+      <FontAwesomeIcon
+        icon={icon}
+        color={tokens.text.font.color}
+        css={{ width: '1rem', height: '1rem' }}
+      />
       <Text {...props} />
     </Stack>
   )
