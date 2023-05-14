@@ -1,6 +1,5 @@
 ---
 role: Junior Smartass
-title: Wine tasting 4
 sector: Wine
 from: 2021-09-01
 to: 2022-01-31

@@ -1,7 +1,6 @@
 ---
 role: Junior Klugscheißer
 title: Wein Geschmacksprobe 1
-sector: Wein
 from: 2021-09-01
 to: 2022-01-31
 tasks:
