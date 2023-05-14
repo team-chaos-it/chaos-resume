@@ -29,7 +29,7 @@ export const profile = {
   contact: [
     { icon: faPhone, value: contact.phone },
     { icon: faEnvelope, value: contact.email },
-    { icon: faXing, value: contact.xing },
+    { icon: faXing, value: contact.xing, type: 'link' },
     { icon: faLocationDot, value: contact.address.city },
   ],
   competencies: {

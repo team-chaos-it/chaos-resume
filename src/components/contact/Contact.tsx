@@ -1,17 +1,11 @@
-import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { tokens } from '../../tokens'
 import { Heading } from '../shared/heading/Heading'
 import { Stack } from '../shared/stack/Stack'
-import { ContactItem } from './ContactItem'
-
-type ContactInformation = {
-  icon: IconDefinition
-  value: string
-}
+import { ContactItem, ContactItemProps } from './ContactItem'
 
 export type ContactProps = {
-  contacts: Array<ContactInformation>
+  contacts: Array<ContactItemProps>
 }
 
 export const Contact = ({ contacts }: ContactProps) => {
@@ -32,9 +26,12 @@ export const Contact = ({ contacts }: ContactProps) => {
         css={{ color: tokens.text.font.color }}
       >
         {contacts.map((c) => (
-          <ContactItem key={c.value} icon={c.icon}>
-            {c.value}
-          </ContactItem>
+          <ContactItem
+            key={c.value}
+            icon={c.icon}
+            type={c.type}
+            value={c.value}
+          />
         ))}
       </Stack>
     </section>

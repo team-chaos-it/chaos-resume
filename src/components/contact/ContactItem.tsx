@@ -1,15 +1,21 @@
+import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { tokens } from '../../tokens'
 import { Stack } from '../shared/stack/Stack'
 import { Text } from '../shared/text/Text'
-import { PropsWithChildren } from 'react'
-import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
-import { tokens } from '../../tokens'
 
-export type ContactItemProps = PropsWithChildren & {
+export type ContactItemProps = {
   icon: IconDefinition
+  value: string
+  type?: string
 }
 
-export const ContactItem = ({ icon, ...props }: ContactItemProps) => {
+export const ContactItem = ({
+  icon,
+  type,
+  value,
+  ...props
+}: ContactItemProps) => {
   return (
     <Stack gap="1.25rem" align="center">
       <FontAwesomeIcon
@@ -17,7 +23,23 @@ export const ContactItem = ({ icon, ...props }: ContactItemProps) => {
         color={tokens.text.font.color}
         css={{ width: '1rem', height: '1rem' }}
       />
-      <Text {...props} />
+      {type === 'link' ? (
+        <Text
+          as="a"
+          href={'https://' + value}
+          target="_blank"
+          css={{
+            '@media print': {
+              textDecoration: 'none',
+            },
+          }}
+          {...props}
+        >
+          {value}
+        </Text>
+      ) : (
+        <Text {...props}>{value}</Text>
+      )}
     </Stack>
   )
 }
