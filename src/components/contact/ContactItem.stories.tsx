@@ -24,5 +24,5 @@ const Template: ComponentStory<typeof ContactItem> = (args) => (
 export const Default = Template.bind({})
 Default.storyName = 'ContactItem'
 Default.args = {
-  children: 'Lorem ipsum dolor sit amet',
+  value: 'Lorem ipsum dolor sit amet',
 }
