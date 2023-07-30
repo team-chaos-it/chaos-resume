@@ -7,14 +7,14 @@ import { TaskList } from '../task-list/TaskList'
 import { Text } from '../shared/text/Text'
 
 export type ProjectProps = {
-  title: string
-  role: string
-  sector: string
-  from: string
+  title?: string
+  role?: string
+  sector?: string
+  from?: string
   to?: string
   tasks?: Array<string>
   tools?: Array<string>
-  html: string
+  html?: string
 }
 
 export const Project = ({
@@ -86,7 +86,7 @@ export const Project = ({
           },
         }}
       >
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
         {tools && (
           <div>
             <Text bold>{t('tools')}</Text>

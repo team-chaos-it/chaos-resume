@@ -79,12 +79,15 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
     )
   }
 
-  const projects = data.files.projects
+  const allProjects = data.files.projects
     .map((p) => ({
       ...p.project.frontmatter,
       html: p.project.html,
     }))
     .filter(matchesFilter)
+  const projectsWithFromDate = allProjects.filter((p) => !!p.from)
+  const projectsWithoutFromDate = allProjects.filter((p) => p.from === null)
+  const projects = [...projectsWithFromDate, ...projectsWithoutFromDate]
   const { name, jobTitle, image } = profile[currentLanguage].personal
 
   return (
