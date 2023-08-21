@@ -1,36 +1,10 @@
-import { Task } from './Task'
+type TaskListProps = { tasks: string[] }
 
-type TaskListProps = { tasks: string[]; hideAfterLines?: number }
-
-export const TaskList = ({
-  tasks,
-  hideAfterLines,
-  ...props
-}: TaskListProps) => {
+export const TaskList = ({ tasks, ...props }: TaskListProps) => {
   return (
-    <ul
-      css={{
-        position: 'relative',
-        margin: 0,
-      }}
-      {...props}
-    >
+    <ul {...props}>
       {tasks.map((value, index) => (
-        <Task
-          css={{
-            '@media screen': {
-              display: hideAfterLines
-                ? index >= hideAfterLines
-                  ? 'none'
-                  : 'block,'
-                : 'block',
-            },
-          }}
-          fade={hideAfterLines ? index === hideAfterLines - 1 : false}
-          key={value}
-        >
-          {value}
-        </Task>
+        <li key={index}>{value}</li>
       ))}
     </ul>
   )
