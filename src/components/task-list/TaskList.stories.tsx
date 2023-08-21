@@ -31,4 +31,3 @@ const Template: ComponentStory<typeof TaskList> = (args) => (
 
 export const Default = Template.bind({})
 Default.storyName = 'TaskList'
-Default.args = { hideAfterLines: 2 }

@@ -35,7 +35,7 @@ export const Project = ({
       css={{
         pageBreakInside: 'avoid',
         position: 'relative',
-        paddingBlock: '2rem',
+        paddingBlock: '1.5rem',
         gap: '1rem',
         ...responsiveValue('marginLeft', { sm: '2rem', md: '4rem' }),
       }}
@@ -106,7 +106,6 @@ export const Project = ({
                 },
               }}
               tasks={tasks}
-              hideAfterLines={3}
             />
             <TaskList
               css={{
