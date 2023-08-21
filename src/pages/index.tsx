@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from 'framer-motion'
 import { Link as GatsbyLink, PageProps, graphql } from 'gatsby'
 import {
   Link as GatsbyLinkI18n,
@@ -7,8 +6,8 @@ import {
   useTranslation,
 } from 'gatsby-plugin-react-i18next'
 import * as React from 'react'
-import { useState } from 'react'
 import { useQueryParamString } from 'react-use-query-param-string'
+import { Banner } from '../components/banner/Banner'
 import { Certifications } from '../components/certifications/Certifications'
 import { Competencies } from '../components/competencies/Competencies'
 import { Contact } from '../components/contact/Contact'
@@ -26,7 +25,6 @@ import { profile as profileDe } from '../data/profile-de'
 import { profile as profileEn } from '../data/profile-en'
 import { settings } from '../data/settings'
 import { responsiveValue } from '../utils/ResponsiveUtils'
-import { Banner } from '../components/banner/Banner'
 
 type DataProps = {
   files: {
@@ -48,7 +46,6 @@ type DataProps = {
 }
 
 const IndexPage = ({ data }: PageProps<DataProps>) => {
-  const [openBanner, setOpenBanner] = useState(true)
   const { languages, originalPath } = useI18next()
   type Language = 'de' | 'en'
 
@@ -159,26 +156,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
           </Link>
         )}
       </Footer>
-      <AnimatePresence>
-        {openBanner && (
-          <Banner
-            css={{
-              '@media print': {
-                display: 'none',
-              },
-              '@media screen': {
-                display: 'flex',
-              },
-            }}
-            initial={{ height: 'auto' }}
-            animate={{ height: 'auto' }}
-            exit={{ height: 0, paddingBlock: 0 }}
-            as={motion.div}
-            onButtonClose={() => setOpenBanner(false)}
-            transition={{ duration: 0.3 }}
-          />
-        )}
-      </AnimatePresence>
+      {settings.showBanner && <Banner />}
     </React.Fragment>
   )
 }
