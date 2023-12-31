@@ -44,7 +44,7 @@ const Imprint = () => {
           <br />
           {address.street}
           <br />
-          {address.city}
+          {address.zip} {address.city}
         </Text>
         <Heading size="sm" as="h2">
           Contact
