@@ -15,10 +15,15 @@ export const CompetenciesItem = ({
 }: CompetenciesItemProps) => {
   return (
     <Stack direction="column" gap=".25rem" {...props}>
-      <Heading size="xs" textAlign={{ sm: 'center', md: 'start' }}>
+      <Heading
+        id={`progress-bar-${title}`}
+        size="xs"
+        textAlign={{ sm: 'center', md: 'start' }}
+      >
         {title}
       </Heading>
       <progress
+        aria-labelledby={`progress-bar-${title}`}
         css={{
           appearance: 'none',
           height: '.25rem',
