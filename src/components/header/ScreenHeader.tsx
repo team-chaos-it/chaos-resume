@@ -74,6 +74,7 @@ export const ScreenHeader = ({
       <tr>
         <td>
           <img
+            alt={`Black and white portrait of ${name}}`}
             css={{
               width: '190px',
               height: '190px',
