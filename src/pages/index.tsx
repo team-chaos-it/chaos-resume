@@ -102,11 +102,15 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
         }}
       >
         <PrintHeader
+          aria-hidden="true"
           name={profile[currentLanguage].personal.name}
           jobTitle={profile[currentLanguage].personal.jobTitle}
         />
-        <ScreenHeader name={name} jobTitle={jobTitle} image={image} />
+        <header>
+          <ScreenHeader name={name} jobTitle={jobTitle} image={image} />
+        </header>
         <Stack
+          role="main"
           as="tbody"
           direction={{ sm: 'column', md: 'row' }}
           gap={{ sm: 0, md: '5rem' }}

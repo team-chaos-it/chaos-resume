@@ -21,6 +21,7 @@ const Privacy = () => {
         htmlAttributes={{ lang: 'de-DE' }}
       />
       <Stack
+        as="main"
         direction="column"
         justify="space-between"
         gap="16px"
