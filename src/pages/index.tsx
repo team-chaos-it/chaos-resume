@@ -25,6 +25,7 @@ import { profile as profileDe } from '../data/profile-de'
 import { profile as profileEn } from '../data/profile-en'
 import { settings } from '../data/settings'
 import { responsiveValue } from '../utils/ResponsiveUtils'
+import { Helmet } from 'react-helmet'
 
 type DataProps = {
   files: {
@@ -89,6 +90,10 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
 
   return (
     <React.Fragment>
+      <Helmet
+        title={`CV of ${name}`}
+        htmlAttributes={{ lang: currentLanguage === 'de' ? 'de-DE' : 'en-GB' }}
+      />
       <table
         css={{
           '@media screen': {

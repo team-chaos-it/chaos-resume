@@ -8,6 +8,7 @@ const config: GatsbyConfig = {
   },
   graphqlTypegen: true,
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-fontawesome-css',
     'gatsby-plugin-fix-fouc',
     'gatsby-plugin-emotion',
