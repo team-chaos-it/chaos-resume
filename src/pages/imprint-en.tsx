@@ -18,6 +18,7 @@ const Imprint = () => {
     <React.Fragment>
       <Helmet title={`Imprint`} htmlAttributes={{ lang: 'en-GB' }} />
       <Stack
+        as="main"
         direction="column"
         justify="space-between"
         gap="16px"

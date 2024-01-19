@@ -18,6 +18,7 @@ const Privacy = () => {
     <React.Fragment>
       <Helmet title={`Data protection`} htmlAttributes={{ lang: 'en-GB' }} />
       <Stack
+        as="main"
         direction="column"
         justify="space-between"
         gap="16px"

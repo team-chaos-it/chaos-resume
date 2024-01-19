@@ -6,6 +6,7 @@ export type FooterProps = ComponentProps<typeof Stack>
 export const Footer = (props: FooterProps) => {
   return (
     <Stack
+      as="footer"
       justify="center"
       gap="12px"
       css={{
