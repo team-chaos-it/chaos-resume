@@ -36,11 +36,14 @@ jobs:
       - name: Prettier
         run: npm run prettier-check
       - name: Build app
-        run: npm run build
+        run: |
+          # Disable AppArmor for Chrome
+          echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+          npm run build
       - name: Build storybook
         run: NODE_OPTIONS=--openssl-legacy-provider npm run build-storybook
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public   
           retention-days: 1  
