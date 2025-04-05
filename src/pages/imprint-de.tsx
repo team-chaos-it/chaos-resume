@@ -44,17 +44,32 @@ const Imprint = () => {
             Impressum
           </Heading>
 
-          <Heading size="sm" as="h2">
-            Angaben gem&auml;&szlig; &sect; 5 TMG
-          </Heading>
           <Text>
-            {name}
-            <br />
-            {company}
-            <br />
-            {address.street}
-            <br />
-            {address.zip} {address.city}
+            {name ? (
+              <>
+                {name}
+                <br />
+              </>
+            ) : undefined}
+            {company ? (
+              <>
+                {company}
+                <br />
+              </>
+            ) : undefined}
+            {address.line1 && (
+              <>
+                {address.line1}
+                <br />
+              </>
+            )}
+            {address.line2 && (
+              <>
+                {address.line2}
+                <br />
+              </>
+            )}
+            {address.line3}
           </Text>
           <Heading size="sm" as="h2">
             Kontakt
@@ -64,57 +79,68 @@ const Imprint = () => {
             <br />
             {email}
           </Text>
-          <Heading size="sm" as="h2">
-            Umsatzsteuer-ID
-          </Heading>
-          <Text>
-            Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a
-            Umsatzsteuergesetz:
-            <br />
-            {vatId}
-          </Text>
-          <Heading size="sm" as="h2">
-            Angaben zur Berufs&shy;haftpflicht&shy;versicherung
-          </Heading>
-          <Text>
-            <strong>Name und Sitz des Versicherers:</strong>
-            <br />
-            {insurance.name}
-            <br />
-            {insurance.address.street}
-            <br />
-            {insurance.address.city}
-          </Text>
-          <Text>
-            <strong>Geltungsraum der Versicherung:</strong>
-            <br />
-            {insurance.scope}
-          </Text>
+          {vatId && (
+            <>
+              <Heading size="sm" as="h2">
+                Umsatzsteuer-ID
+              </Heading>
+              <Text>
+                Umsatzsteuer-Identifikationsnummer:
+                <br />
+                {vatId}
+              </Text>
+            </>
+          )}
+          {insurance && (
+            <>
+              <Heading size="sm" as="h2">
+                Angaben zur Berufs&shy;haftpflicht&shy;versicherung
+              </Heading>
+              <Text>
+                <strong>Name und Sitz des Versicherers:</strong>
+                <br />
+                {insurance.name}
+                <br />
+                {insurance.address.street}
+                <br />
+                {insurance.address.city}
+              </Text>
+              <Text>
+                <strong>Geltungsraum der Versicherung:</strong>
+                <br />
+                {insurance.scope}
+              </Text>{' '}
+            </>
+          )}
           <Heading size="sm" as="h2">
             Redaktionell verantwortlich
           </Heading>
           <Text>
-            {name}
-            <br />
-            {address.street}
-            <br />
-            {address.city}
-          </Text>
-          <Heading size="sm" as="h2">
-            EU-Streitschlichtung
-          </Heading>
-          <Text>
-            Die Europ&auml;ische Kommission stellt eine Plattform zur
-            Online-Streitbeilegung (OS) bereit:
-            <Text
-              as="a"
-              href="https://ec.europa.eu/consumers/odr/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://ec.europa.eu/consumers/odr/
-            </Text>
-            .<br /> Unsere E-Mail-Adresse finden Sie oben im Impressum.
+            {name ? (
+              <>
+                {name}
+                <br />
+              </>
+            ) : undefined}
+            {company ? (
+              <>
+                {company}
+                <br />
+              </>
+            ) : undefined}
+            {address.line1 && (
+              <>
+                {address.line1}
+                <br />
+              </>
+            )}
+            {address.line2 && (
+              <>
+                {address.line2}
+                <br />
+              </>
+            )}
+            {address.line3}
           </Text>
           <Heading size="sm" as="h2">
             Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle

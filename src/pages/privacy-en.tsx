@@ -179,9 +179,11 @@ const Privacy = () => {
           <Text>
             {name}
             <br />
-            {address.street}
-            <br />
-            {address.zip} {address.city}
+            {address.line1}
+            {address.line2 ? <br /> : undefined}
+            {address.line2 ?? address.line2}
+            {address.line3 ? <br /> : undefined}
+            {address.line3 ?? address.line3}
           </Text>
           <Text>
             Phone: {phone}

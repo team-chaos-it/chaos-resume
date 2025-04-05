@@ -38,8 +38,8 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`,
-        languages: settings.useLocalization ? [`en`, `de`] : [`de`],
-        defaultLanguage: `de`,
+        languages: settings.useLocalization ? [`en`, `de`] : [`en`],
+        defaultLanguage: `en`,
         redirect: false,
         i18nextOptions: {
           keySeparator: false,

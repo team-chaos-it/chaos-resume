@@ -10,7 +10,11 @@ export const contact = {
   phone: '0123 1234567',
   email: 'info@example.org',
   xing: 'xing.com/profile/John_Doe',
-  address: { street: 'Hauptstraße', zip: '12345', city: 'Birbenhausen' },
+  address: {
+    line1: 'Hauptstraße',
+    line2: '12345 Birbenhausen',
+    line3: undefined,
+  },
 }
 
 export const profile = {
@@ -30,7 +34,7 @@ export const profile = {
     { icon: faPhone, value: contact.phone },
     { icon: faEnvelope, value: contact.email },
     { icon: faXing, value: contact.xing, type: 'link' },
-    { icon: faLocationDot, value: contact.address.city },
+    { icon: faLocationDot, value: 'New York' },
   ],
   competencies: {
     Area1: [
