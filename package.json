@@ -34,7 +34,7 @@
     "gatsby-plugin-fix-fouc": "^1.0.3",
     "gatsby-plugin-fontawesome-css": "^1.2.0",
     "gatsby-plugin-mdx": "^5.7.0",
-    "gatsby-plugin-pdf": "github:pragtics/gatsby-plugin-pdf#main",
+    "gatsby-plugin-pdf": "github:sascha-eisenmann/gatsby-plugin-pdf#main",
     "gatsby-plugin-react-helmet": "^6.13.0",
     "gatsby-plugin-react-i18next": "^3.0.1",
     "gatsby-source-filesystem": "^5.7.0",
