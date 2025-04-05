@@ -43,17 +43,32 @@ const Imprint = () => {
             Imprint
           </Heading>
 
-          <Heading size="sm" as="h2">
-            Information according to &sect; 5 TMG
-          </Heading>
           <Text>
-            {name}
-            <br />
-            {company}
-            <br />
-            {address.street}
-            <br />
-            {address.zip} {address.city}
+            {name ? (
+              <>
+                {name}
+                <br />
+              </>
+            ) : undefined}
+            {company ? (
+              <>
+                {company}
+                <br />
+              </>
+            ) : undefined}
+            {address.line1 && (
+              <>
+                {address.line1}
+                <br />
+              </>
+            )}
+            {address.line2 && (
+              <>
+                {address.line2}
+                <br />
+              </>
+            )}
+            {address.line3}
           </Text>
           <Heading size="sm" as="h2">
             Contact
@@ -63,57 +78,68 @@ const Imprint = () => {
             <br />
             {email}
           </Text>
-          <Heading size="sm" as="h2">
-            VAT ID
-          </Heading>
-          <Text>
-            VAT identification number according to &sect; 27 a Value Added Tax
-            Act:
-            <br />
-            {vatId}
-          </Text>
-          <Heading size="sm" as="h2">
-            Details of professional liability insurance
-          </Heading>
-          <Text>
-            <strong>Name and registered office of the insurer:</strong>
-            <br />
-            {insurance.name}
-            <br />
-            {insurance.address.street}
-            <br />
-            {insurance.address.city}
-          </Text>
-          <Text>
-            <strong>Area of validity of the insurance:</strong>
-            <br />
-            {insurance.scope}
-          </Text>
+          {vatId && (
+            <>
+              <Heading size="sm" as="h2">
+                VAT ID
+              </Heading>
+              <Text>
+                VAT identification number:
+                <br />
+                {vatId}
+              </Text>
+            </>
+          )}
+          {insurance && (
+            <>
+              <Heading size="sm" as="h2">
+                Details of professional liability insurance
+              </Heading>
+              <Text>
+                <strong>Name and registered office of the insurer:</strong>
+                <br />
+                {insurance.name}
+                <br />
+                {insurance.address.street}
+                <br />
+                {insurance.address.city}
+              </Text>
+              <Text>
+                <strong>Area of validity of the insurance:</strong>
+                <br />
+                {insurance.scope}
+              </Text>
+            </>
+          )}
           <Heading size="sm" as="h2">
             Redaktionell verantwortlich
           </Heading>
           <Text>
-            {name}
-            <br />
-            {address.street}
-            <br />
-            {address.city}
-          </Text>
-          <Heading size="sm" as="h2">
-            EU Dispute Settlement
-          </Heading>
-          <Text>
-            The European Commission provides a platform for the Online Dispute
-            Resolution (ODR):
-            <Text
-              as="a"
-              href="https://ec.europa.eu/consumers/odr/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://ec.europa.eu/consumers/odr/
-            </Text>
-            .<br /> You can find our e-mail address in the imprint above.
+            {name ? (
+              <>
+                {name}
+                <br />
+              </>
+            ) : undefined}
+            {company ? (
+              <>
+                {company}
+                <br />
+              </>
+            ) : undefined}
+            {address.line1 && (
+              <>
+                {address.line1}
+                <br />
+              </>
+            )}
+            {address.line2 && (
+              <>
+                {address.line2}
+                <br />
+              </>
+            )}
+            {address.line3}
           </Text>
           <Heading size="sm" as="h2">
             Consumer dispute resolution / Universal arbitration board
