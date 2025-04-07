@@ -53,7 +53,7 @@ const config: GatsbyConfig = {
       options: {
         allPages: false,
         useRegexPaths: false,
-        paths: ['/', '/en/'],
+        paths: ['/', '/de/'],
         outputPath: '/public/pdf',
         pdfOptions: {
           printBackground: true,
